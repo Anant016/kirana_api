@@ -50,7 +50,7 @@ router.post("/edit/:id", (req, res) => {
     { new: true }
   )
     .then((product) => res.json(product))
-    .catch((err) => console.log(err));
+    .catch((err) => res.send(err));
 });
 
 // 6. Delete Product by id

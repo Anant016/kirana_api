@@ -39,7 +39,6 @@ router.post("/delete", (req, res) => {
 
 // @POST - Get Addresses of a particular user/store
 router.post("/get", (req, res) => {
-  console.log(req.body.number);
   Address.find({ number: req.body.number }, (err, data) => {
     if (err) {
       res.send(err, 422);

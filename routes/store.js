@@ -50,7 +50,7 @@ router.post("/edit/:id", (req, res) => {
     { new: true }
   )
     .then((store) => res.json(store))
-    .catch((err) => console.log(err));
+    .catch((err) => res.send(err));
 });
 
 // 6. Delete Store by id

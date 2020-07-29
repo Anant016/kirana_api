@@ -32,7 +32,7 @@ router.post("/add", (req, res) => {
         { new: true }
       )
         .then((product) => res.json(product))
-        .catch((err) => console.log(err));
+        .catch((err) => res.send(err));
     } else {
       NewProduct.save((err) => {
         if (err) {
@@ -90,7 +90,7 @@ router.post("/update", (req, res) => {
     { new: true }
   )
     .then((product) => res.json(product))
-    .catch((err) => console.log(err));
+    .catch((err) => res.send(err));
 });
 
 module.exports = router;
