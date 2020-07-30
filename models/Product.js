@@ -22,6 +22,9 @@ const ProductSchema = new Schema({
     type: String,
     // required: true,
   },
+  img_url: {
+    type: String,
+  },
 });
 
 module.exports = Product = mongoose.model("products", ProductSchema);

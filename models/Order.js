@@ -38,6 +38,15 @@ const OrderSchema = new Schema({
     type: String,
     required: true,
   },
+  orderType: {
+    type: Number,
+  },
+  storeId: {
+    type: String,
+  },
+  isMasterStore: {
+    type: Boolean,
+  },
 });
 
 module.exports = Order = mongoose.model("orders", OrderSchema);

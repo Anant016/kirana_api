@@ -34,6 +34,15 @@ router.get("/get/:id", (req, res) => {
     );
 });
 
+// 3. Get Stores By City
+router.get("/getbycity/:id", (req, res) => {
+  Store.find({ storeCity: req.params.id })
+    .then((store) => res.json(store))
+    .catch((err) =>
+      res.status(404).json({ noStoreFound: "No Store found with that ID" })
+    );
+});
+
 // 5. Edit Store
 router.post("/edit/:id", (req, res) => {
   var newData = {

@@ -12,6 +12,7 @@ router.post("/add", (req, res) => {
     image: req.body.image,
     desc: req.body.desc,
     number: req.body.number,
+    orderType: req.body.orderType,
   });
 
   Cart.findOne({

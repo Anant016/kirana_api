@@ -44,6 +44,7 @@ router.post("/addToOrder", (req, res) => {
           price: item.price,
           desc: item.desc,
           qty: item.qty,
+          orderType: item.orderType,
           //number: item.number,
           image: item.image,
         };
@@ -62,6 +63,8 @@ router.post("/addToOrder", (req, res) => {
           totalPrice: totalPrice,
           date: date_now,
           time: time_now,
+          storeId: req.body.storeId,
+          isMasterStore: req.body.isMasterStore,
         });
         wholeOrder.save((err) => {
           if (err) {

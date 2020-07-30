@@ -10,6 +10,7 @@ router.post("/save", (req, res) => {
     productPrice: req.body.productPrice,
     productDescription: req.body.productPrice,
     productQuantity: req.body.productQuantity,
+    img_url: req.body.img_url,
   });
   newProduct
     .save()
@@ -35,6 +36,15 @@ router.get("/get/:id", (req, res) => {
     );
 });
 
+// 3. Get Products By StoreId
+router.get("/getbystore/:id", (req, res) => {
+  Product.find({ storeId: req.params.id })
+    .then((product) => res.json(product))
+    .catch((err) =>
+      res.status(404).json({ noProductFound: "No Product found with that ID" })
+    );
+});
+
 // 5. Edit Product
 router.post("/edit/:id", (req, res) => {
   var newData = {
@@ -43,6 +53,7 @@ router.post("/edit/:id", (req, res) => {
     productPrice: req.body.productPrice,
     productDescription: req.body.productPrice,
     productQuantity: req.body.productQuantity,
+    img_url: req.body.img_url,
   };
   Product.findOneAndUpdate(
     { _id: req.params.id },
